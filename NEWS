@@ -6,3 +6,10 @@ in-depth version of what was changed, please look at the ChangeLog.
 - Added support for 24 bit color
 - Created command line tool that uses DevIL library for loading/saving images
 - Use autotools for build system
+
+hqx-lite 
+---
+- changed lookuptable for RGB to YUV conversion so it uses three seperate tables
+  This drastically reduces the memory usage (the table chanes from 64 Mb to 3 kb), and initializes witout notable delay
+  The actual scaling is slightly slower, but that is fine if you only apply it to loaded sprites instead 
+  of every frame of an emulator.

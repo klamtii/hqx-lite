@@ -11,3 +11,6 @@
 
 2011-12-05 Cameron Zemek <grom@zeminvaders.net>, Francois Gannaz <mytskine@gmail.com>
     * Added transparency support
+
+2019-1-1 Christian Klamt
+    * Made RGB to YUV conversion three small lookup-tables for single channels
