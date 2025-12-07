@@ -1,5 +1,10 @@
 hqx-lite Library README
 ==================
+# HQX-lite
+The HQX library, you can get from Grom358 ( https://github.com/grom358/hqx ), is designed to work fast in realtime, for example upscaling the image from an emulator. This comes at the cost of a large memory footprint and a slow initialisation.
+hqx-lite is meant to be linked to a game (it was created for Magnetic Planet 32 ( https://github.com/klamtii/mplanet32 ) ) and upscale the sprites. It uses much less memory, and initializes faster (you still have to init it).
+
+It is meant for static linking, (as long you adher to the LGPL license ). The Windows-specific code for creating DLLs is commented out, and the Linux-based command-line tool (wich needs DevIL) is untested.
 
 # Introduction
 hqx ("hq" stands for "high quality" and "x" stands for magnification) is one of the pixel art scaling algorithms developed by Maxim Stepin, used in emulators such as Nestopia, bsnes, ZSNES, Snes9x, FCE Ultra and many more. There are 3 hqx filters: hq2x, hq3x and hq4x which magnify by factor of 2, 3 and 4 respectively.
