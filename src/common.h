@@ -4,6 +4,8 @@
  * Copyright (C) 2010 Cameron Zemek ( grom@zeminvaders.net)
  * Copyright (C) 2011 Francois Gannaz <mytskine@gmail.com>
  *
+ * Copyright (C) 2020 Christian Klamt ( klamtii@googlemail.com )
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -37,14 +39,22 @@
 #define trU   0x00000700
 #define trV   0x00000006
 
+/*Do the per-channel lookup  for RGB to YUV conversion - CK*/
+
 /* RGB to YUV lookup table */
-extern uint32_t RGBtoYUV[16777216];
+/*extern uint32_t RGBtoYUV[16777216];*/
+extern uint32_t BtoYUV[256];
+extern uint32_t GtoYUV[256];
+extern uint32_t RtoYUV[256];
+
 
 static inline uint32_t rgb_to_yuv(uint32_t c)
 {
     // Mask against MASK_RGB to discard the alpha channel
-    return RGBtoYUV[MASK_RGB & c];
+/*    return RGBtoYUV[MASK_RGB & c];*/
+ return BtoYUV[c&0xFF]+GtoYUV[(c>>8)&0xFF]+RtoYUV[(c>>16)&0xFF];
 }
+
 
 /* Test if there is difference in color */
 static inline int yuv_diff(uint32_t yuv1, uint32_t yuv2) {

@@ -3,6 +3,8 @@
  *
  * Copyright (C) 2010 Cameron Zemek ( grom@zeminvaders.net)
  *
+ * Copyright (C) 2020 Christian Klamt ( klamtii@googlemail.com )
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
@@ -33,19 +35,18 @@
     #define HQX_CALLCONV
 #endif
 
+/*On Windows we do for static linking, to uncomment the following for a DLL - CK*/
+
+/*
 #if defined(_WIN32)
     #ifdef DLL_EXPORT
         #define HQX_API __declspec(dllexport)
     #else
         #define HQX_API __declspec(dllimport)
     #endif
-#else
+#else*/
     #define HQX_API
-#endif
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+/*#endif*/
 
 HQX_API void HQX_CALLCONV hqxInit(void);
 HQX_API void HQX_CALLCONV hq2x_32( const uint32_t * src, uint32_t * dest, int width, int height );
@@ -55,9 +56,5 @@ HQX_API void HQX_CALLCONV hq4x_32( const uint32_t * src, uint32_t * dest, int wi
 HQX_API void HQX_CALLCONV hq2x_32_rb( const uint32_t * src, uint32_t src_rowBytes, uint32_t * dest, uint32_t dest_rowBytes, int width, int height );
 HQX_API void HQX_CALLCONV hq3x_32_rb( const uint32_t * src, uint32_t src_rowBytes, uint32_t * dest, uint32_t dest_rowBytes, int width, int height );
 HQX_API void HQX_CALLCONV hq4x_32_rb( const uint32_t * src, uint32_t src_rowBytes, uint32_t * dest, uint32_t dest_rowBytes, int width, int height );
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif
